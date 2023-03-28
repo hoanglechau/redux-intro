@@ -119,10 +119,18 @@ const ProductPage = (props) => {
             </Typography>
             <Grid container spacing={2} p="1rem">
                 <Grid item sm={6}>
-                    <ProductOne product={props.products[0]} />
+                    <ProductOne
+                        product={props.products[0]}
+                        addProduct={props.addProduct}
+                        removeProduct={props.removeProduct}
+                    />
                 </Grid>
                 <Grid item sm={6}>
-                    <ProductTwo product={props.products[1]} />
+                    <ProductTwo
+                        product={props.products[1]}
+                        addProduct={props.addProduct}
+                        removeProduct={props.removeProduct}
+                    />
                 </Grid>
             </Grid>
         </WrapperBox>
@@ -198,10 +206,18 @@ const ProductOne = (props) => {
                             justifyContent: "space-between",
                         }}
                     >
-                        <Button variant="success" sx={{ width: "5rem" }}>
+                        <Button
+                            variant="success"
+                            sx={{ width: "5rem" }}
+                            onClick={() => props.addProduct(props.product)}
+                        >
                             Add
                         </Button>
-                        <Button variant="error" sx={{ width: "5rem" }}>
+                        <Button
+                            variant="error"
+                            sx={{ width: "5rem" }}
+                            onClick={() => props.removeProduct(props.product)}
+                        >
                             Remove
                         </Button>
                     </div>
@@ -250,6 +266,7 @@ const ProductTwo = (props) => {
                             variant="success"
                             size="sm"
                             style={{ width: "5rem" }}
+                            onClick={() => props.addProduct(props.product)}
                         >
                             Add
                         </Button>
@@ -257,6 +274,7 @@ const ProductTwo = (props) => {
                             variant="error"
                             size="sm"
                             style={{ width: "5rem" }}
+                            onClick={() => props.removeProduct(props.product)}
                         >
                             Remove
                         </Button>
