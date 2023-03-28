@@ -163,10 +163,18 @@ const ProductOne = (props) => {
                             justifyContent: "space-around",
                         }}
                     >
-                        <Button variant="success" sx={{ width: "5rem" }}>
+                        <Button
+                            variant="success"
+                            sx={{ width: "5rem" }}
+                            onClick={addProduct}
+                        >
                             Add
                         </Button>
-                        <Button variant="error" sx={{ width: "5rem" }}>
+                        <Button
+                            variant="error"
+                            sx={{ width: "5rem" }}
+                            onClick={removeProduct}
+                        >
                             Remove
                         </Button>
                     </div>
@@ -228,10 +236,18 @@ const ProductTwo = (props) => {
                             justifyContent: "space-around",
                         }}
                     >
-                        <Button variant="success" sx={{ width: "5rem" }}>
+                        <Button
+                            variant="success"
+                            sx={{ width: "5rem" }}
+                            onClick={addProduct}
+                        >
                             Add
                         </Button>
-                        <Button variant="error" sx={{ width: "5rem" }}>
+                        <Button
+                            variant="error"
+                            sx={{ width: "5rem" }}
+                            onClick={removeProduct}
+                        >
                             Remove
                         </Button>
                     </div>
