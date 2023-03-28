@@ -1,6 +1,4 @@
-import {
-    createSlice
-} from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
     name: "cart",
@@ -25,16 +23,19 @@ export const cartSlice = createSlice({
         removeCart: (state, action) => {
             const removedProduct = action.payload;
             state.products.forEach((cartProduct) => {
-                if (cartProduct.id === removedProduct.id && cartProduct.qty > 0) {
+                if (
+                    cartProduct.id === removedProduct.id &&
+                    cartProduct.qty > 0
+                ) {
                     cartProduct.qty -= 1;
                     cartProduct.price -= removedProduct.price;
                     state.totalPrice -= removedProduct.price;
                 }
-            })
+            });
+        },
+    },
+});
 
-        }
-    }
-})
-const { actions, reducers } = cartSlice
-export const { addToCart, removeCart } = actions
+const { actions, reducers } = cartSlice;
+export const { addToCart, removeCart } = actions;
 // export default reducers
