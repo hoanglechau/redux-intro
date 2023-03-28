@@ -42,6 +42,18 @@ const RootComponent = (props) => {
     // Write a function called removeProductFromCart() that takes a product object as an argument
     // Example removedProduct = { id: "p1", title: "Product 1", price: 1999 }
     // The function will remove one product from the cart. The min value of quantity is 0
+    const removeProductFromCart = (removedProduct) => {
+        let newTotalPrice = cart.totalPrice;
+        const newProductList = cart.products.map((cartProduct) => {
+            if (cartProduct.id === removedProduct.id && cartProduct.qty > 0) {
+                cartProduct.qty -= 1;
+                cartProduct.price -= removedProduct.price;
+                newTotalPrice -= removedProduct.price;
+            }
+            return cartProduct;
+        });
+        setCart({ products: newProductList, totalPrice: newTotalPrice });
+    };
 
     // Step 3
     // Pass the functions to the product components to handle the click event of the Add/Remove buttons
@@ -74,7 +86,11 @@ const RootComponent = (props) => {
             </Box>
             <Grid container spacing={2} p="1rem">
                 <Grid item md={6}>
-                    <ProductPage products={products} />
+                    <ProductPage
+                        products={products}
+                        addProduct={addProductToCart}
+                        removeProduct={removeProductFromCart}
+                    />
                 </Grid>
                 <Grid item md={6}>
                     <CartPage cart={cart} />
